@@ -1,0 +1,81 @@
+@use './_vars' as *;
+
+@mixin buttonStyle($buttonBackColor, $buttonTextColor, $buttonBackColorHover, $buttonTextColorHover,$buttonShadow)
+{
+    background-color: $buttonBackColor;
+    color: $buttonTextColor;
+    margin-top: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: $buttonBackColorHover;
+        color: $buttonTextColorHover;
+        font-weight: bold;
+        box-shadow: $buttonShadow;
+    }
+}
+
+@mixin buttonSaveStyle($buttonSaveBackColor, $buttonTextColor, $buttonSaveBackColorHover, $buttonTextColorHover, $buttonShadow)
+{
+    background-color: $buttonSaveBackColor;
+    color: $buttonTextColor;
+    margin-top: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: $buttonSaveBackColorHover;
+        color: $buttonTextColorHover;
+        font-weight: bold;
+        box-shadow: $buttonShadow;
+    }
+}
+
+@mixin buttonEditStyle($buttonEditBackColor, $buttonTextColor, $buttonEditBackColorHover, $buttonTextColorHover, $buttonShadow)
+{
+    background-color: $buttonEditBackColor;
+    color: $buttonTextColor;
+    margin-top: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: $buttonEditBackColorHover;
+        color: $buttonTextColorHover;
+        font-weight: bold;
+        box-shadow: $buttonShadow;
+    }
+}
+
+@mixin buttonDeleteStyle($buttonDeleteBackColor, $buttonTextColor, $buttonDeleteBackColorHover, $buttonTextColorHover, $buttonShadow)
+{
+    background-color: $buttonDeleteBackColor;
+    color: $buttonTextColor;
+    margin-top: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: $buttonDeleteBackColorHover;
+        color: $buttonTextColorHover;
+        font-weight: bold;
+        box-shadow: $buttonShadow;
+    }
+}

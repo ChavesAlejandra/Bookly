@@ -1,4 +1,7 @@
+@use './utilities/_reset.scss' as *;
 @use './utilities/_vars.scss' as *;
+@use './utilities/_mixins.scss' as *;
+@use './components/_buttons.scss' as *;
 
 // Base styles
 body {
@@ -10,7 +13,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font-display;
+    font-family: $fontTitle;
     letter-spacing: 2px;
     font-weight: bold;
 }
@@ -19,21 +22,19 @@ p, ul, li, a, span, div, button {
     font-family: $fontText;
 }
 
-// Carousel Container
 .carouselContainer {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 
-    // Carousel Slide
     &__slide {
         position: absolute;
         width: 100%;
         height: 100%;
         display: flex;
         opacity: 0;
-        transition: opacity $transition-slow;
+        transition: opacity $transitionSlow;
 
         &#active {
             opacity: 1;
@@ -44,7 +45,6 @@ p, ul, li, a, span, div, button {
         }
     }
 
-    // Carousel Controls
     &__controls {
         position: absolute;
         top: 50%;
@@ -57,7 +57,6 @@ p, ul, li, a, span, div, button {
         pointer-events: none;
     }
 
-    // Carousel Indicators
     &__indicators {
         position: absolute;
         bottom: 40px;
@@ -73,7 +72,7 @@ p, ul, li, a, span, div, button {
             border-radius: 10%;
             background-color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: all $transition-base;
+            transition: all $transitionBase;
             border: 2px solid rgba(255, 255, 255, 0.8);
 
             &#active {
@@ -87,7 +86,6 @@ p, ul, li, a, span, div, button {
         }
     }
 
-    // Modal Overlay
     &__modalOverlay {
         position: fixed;
         top: 0;
@@ -103,7 +101,7 @@ p, ul, li, a, span, div, button {
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
-        transition: all $transition-base;
+        transition: all $transitionBase;
 
         &#active {
             opacity: 1;
@@ -114,21 +112,19 @@ p, ul, li, a, span, div, button {
             }
         }
 
-        // Modal Content
         &__content {
-            background: $color-modal-bg;
-            color: $color-bg-light;
+            background: $carrouselPopUpBackColor;
+            color: $carrouselPopUpTextColor;
             padding: 40px;
             border-radius: 10px;
             width: 90%;
             max-width: 450px;
             position: relative;
             transform: scale(0.8);
-            transition: transform $transition-base;
-            box-shadow: -10px 20px 30px $color-text-dark;
+            transition: transform $transitionBase;
+            box-shadow: $boxShadow;
 
             h2 {
-                color: $color-bg-light;
                 font-size: 32px;
                 text-align: center;
             }
@@ -136,7 +132,7 @@ p, ul, li, a, span, div, button {
             &__text {
                 margin-bottom: 9px;
                 text-align: center;
-                color: $color-gray;
+                color: $carrouselPopUpImportantColor;
             }
 
             &__close {
@@ -148,7 +144,7 @@ p, ul, li, a, span, div, button {
                 font-size: 32px;
                 cursor: pointer;
                 color: #999;
-                transition: color $transition-base;
+                transition: transform $transitionBase;
                 width: 40px;
                 height: 40px;
                 display: flex;
@@ -166,24 +162,23 @@ p, ul, li, a, span, div, button {
                 label {
                     display: block;
                     margin-bottom: 8px;
-                    color: $color-bg-light;
                     font-weight: 600;
                     font-size: 14px;
                     text-align: left;
                 }
 
                 input {
-                    color: $color-primary;
+                    color: $carrouselPopUpFormTextColor;
                     width: 100%;
                     padding: 12px 15px;
                     border: 2px solid #e0e0e0;
                     border-radius: 10px;
                     font-size: 16px;
-                    transition: border-color $transition-base;
+                    transition: border-color $transitionBase;
 
                     &:focus {
                         outline: none;
-                        border-color: $color-dark-gray;
+                        border-color: #2F4F4F;
                     }
                 }
             }
@@ -207,30 +202,13 @@ p, ul, li, a, span, div, button {
                 }
 
                 &__forgotPassword {
-                    color: $color-gray;
+                    color: $carrouselPopUpImportantColor;
                     text-decoration: none;
-                    transition: color $transition-base;
+                    transition: color 0.3s ease;
 
                     &:hover {
-                        color: $color-dark-gray;
+                        color: #2F4F4F;
                     }
-                }
-            }
-
-            &__submitBtn {
-                width: 100%;
-                padding: 15px;
-                background: $color-primary;
-                color: $color-bg-light;
-                border: none;
-                border-radius: 10px;
-                font-size: 18px;
-                cursor: pointer;
-                transition: all $transition-base;
-
-                &:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 5px 15px $color-bg-light;
                 }
             }
 
@@ -241,12 +219,12 @@ p, ul, li, a, span, div, button {
                 font-size: 14px;
 
                 a {
-                    color: $color-gray;
+                    color: $carrouselPopUpImportantColor;
                     text-decoration: none;
                     font-weight: 600;
 
                     &:hover {
-                        color: $color-dark-gray;
+                        color: #2F4F4F;
                     }
                 }
             }
@@ -254,7 +232,6 @@ p, ul, li, a, span, div, button {
     }
 }
 
-// Control Container
 .controlContainer {
     &__controls {
         &__btn {
@@ -266,7 +243,7 @@ p, ul, li, a, span, div, button {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all $transition-base;
+            transition: all $transitionBase;
             pointer-events: all;
 
             &:hover {
@@ -276,7 +253,6 @@ p, ul, li, a, span, div, button {
     }
 }
 
-// Slide Image
 .slide-image {
     width: 50%;
     height: 100%;
@@ -289,7 +265,6 @@ p, ul, li, a, span, div, button {
     }
 }
 
-// Slide Text
 .slide-text {
     width: 50%;
     height: 100%;
@@ -299,7 +274,7 @@ p, ul, li, a, span, div, button {
     justify-content: center;
     align-items: center;
     padding: 80px;
-    color: $color-text-dark;
+    color: $colorText;
 
     h1 {
         font-size: 48px;
@@ -316,27 +291,6 @@ p, ul, li, a, span, div, button {
     }
 }
 
-// Login Button
-.login-btn {
-    margin-top: 20px;
-    padding: 15px 40px;
-    background-color: $color-primary;
-    color: $color-bg-light;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all $transition-base;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.459);
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
-        background-color: $bodyBackColor;
-    }
-}
-
-// Responsive
 @media (max-width: 968px) {
     .carouselContainer__slide,
     .carouselContainer__slide#reverse {
