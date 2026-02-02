@@ -2,4 +2,6 @@
 @use './utilities/_vars.scss' as *;
 @use './utilities/_mixins.scss' as *;
 
+@use './components/_buttons.scss' as *;
+
 @use './pages/_home.scss' as *;

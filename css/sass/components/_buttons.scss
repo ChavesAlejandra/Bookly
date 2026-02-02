@@ -1,5 +1,5 @@
-@use '../base/vars' as *;
-@use '../base/mixins' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
 
 @keyframes buttonHover
 {

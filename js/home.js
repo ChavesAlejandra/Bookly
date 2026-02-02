@@ -1,12 +1,12 @@
 // Seleccionar elementos del DOM
-const slides = document.querySelectorAll('.carousel-slide');
-const indicators = document.querySelectorAll('.indicator');
+const slides = document.querySelectorAll('.carouselContainer__slide');
+const indicators = document.querySelectorAll('.carouselContainer__indicators__indicator');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 // Variables de control
 let currentSlide = 0;
-const slideInterval = 10000000000000; // 5 segundos
+const slideInterval = 9000; // 5 segundos
 let autoSlide;
 
 /**
@@ -23,13 +23,15 @@ function showSlide(index) {
         currentSlide = index;
     }
 
-    // Actualizar slides
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[currentSlide].classList.add('active');
+    // Actualizar slides - remover ID active de todos
+    slides.forEach(slide => slide.removeAttribute('id'));
+    // Agregar ID active solo al slide actual
+    slides[currentSlide].setAttribute('id', 'active');
 
-    // Actualizar indicadores
-    indicators.forEach(indicator => indicator.classList.remove('active'));
-    indicators[currentSlide].classList.add('active');
+    // Actualizar indicadores - remover ID active de todos
+    indicators.forEach(indicator => indicator.removeAttribute('id'));
+    // Agregar ID active solo al indicador actual
+    indicators[currentSlide].setAttribute('id', 'active');
 }
 
 /**
@@ -89,7 +91,7 @@ indicators.forEach(indicator => {
 });
 
 // Pausar cuando el mouse está sobre el carrusel
-const carousel = document.querySelector('.carousel-container');
+const carousel = document.querySelector('.carouselContainer');
 carousel.addEventListener('mouseenter', stopAutoSlide);
 carousel.addEventListener('mouseleave', startAutoSlide);
 
@@ -116,29 +118,29 @@ const loginForm = document.getElementById('loginForm');
 // Abrir modal al hacer clic en cualquier botón de inicio de sesión
 loginButtons.forEach(button => {
     button.addEventListener('click', () => {
-        loginModal.classList.add('active');
+        loginModal.setAttribute('id', 'active');
         stopAutoSlide(); // Pausar el carrusel cuando se abre el modal
     });
 });
 
 // Cerrar modal al hacer clic en la X
 closeModal.addEventListener('click', () => {
-    loginModal.classList.remove('active');
+    loginModal.setAttribute('id', 'loginModal');
     startAutoSlide(); // Reanudar el carrusel cuando se cierra el modal
 });
 
 // Cerrar modal al hacer clic fuera del contenido
 loginModal.addEventListener('click', (e) => {
     if (e.target === loginModal) {
-        loginModal.classList.remove('active');
+        loginModal.setAttribute('id', 'loginModal');
         startAutoSlide();
     }
 });
 
 // Cerrar modal con la tecla ESC
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && loginModal.classList.contains('active')) {
-        loginModal.classList.remove('active');
+    if (e.key === 'Escape' && loginModal.getAttribute('id') === 'active') {
+        loginModal.setAttribute('id', 'loginModal');
         startAutoSlide();
     }
 });
@@ -158,7 +160,7 @@ loginForm.addEventListener('submit', (e) => {
     alert('¡Inicio de sesión exitoso! Email: ' + email);
     
     // Cerrar el modal
-    loginModal.classList.remove('active');
+    loginModal.setAttribute('id', 'loginModal');
     startAutoSlide();
     
     // Limpiar el formulario
