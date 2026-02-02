@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "Distillery Display W00 Regular";
+    src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot");
+    src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.svg#Distillery Display W00 Regular") format("svg");
+}
+
+@font-face {
+    font-family: "Tenor Sans";
+    src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot");
+    src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.svg#Tenor Sans") format("svg");
+}
+
+$fontText: "Tenor Sans", sans-serif;
+$fontTitle: "Distillery Display W00 Regular", sans-serif;
+
+$bodyBackColor: #F0EBE1;
+$colorText: #2c1b1b;
+$colorImportantText: #2F4F4F;
+
+$carrouselPopUpBackColor: #6A2C2C;
+$carrouselPopUpTextColor: #F0EBE1;
+$carrouselPopUpImportantColor: #7F8C8D;
+$carrouselPopUpFormTextColor: #80471C;
+
+$popUpBackColor: #6A2C2C;
+$popUpTextColor: #2c1b1b;
+$popUpImportantColor: #80471C;
+
+$headerFooterBackColor: #6A2C2C;
+$headerFooterTextColor: #F0EBE1;
+
+$cardBackColor: #482C2C;
+$cardBackColorHover: #7F8C8D;
+$cardTextColor: #F0EBE1;
+
+$buttonBackColor: #80471C;
+$buttonBackColorHover: #643816;
+$buttonSaveBackColor: #2F4F4F;
+$buttonSaveBackColorHover: #213838;
+$buttonEditBackColor: #d17630;
+$buttonEditBackColorHover: #80471C;
+$buttonDeleteBackColor: #b93737;
+$buttonDeleteBackColorHover: #722323;
+$buttonTextColor: #F0EBE1;
+$buttonTextColorHover: #7F8C8D;
+$buttonShadow: 0 5px 15px #F0EBE1;
+
+$borderRadius: 10px;
+$borderColor: solid none;
+$boxShadow: -10px 20px 30px #482C2C;
+
+$transitionBase: 0.3s ease;
+$transitionSlow: 1.5s ease-in-out;
