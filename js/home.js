@@ -3,10 +3,26 @@ const slides = document.querySelectorAll('.carouselContainer__slide');
 const indicators = document.querySelectorAll('.carouselContainer__indicators__indicator');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const carousel = document.querySelector('.carouselContainer');
 
-// Variables de control
+// Control del modal de inicio de sesión
+const loginButtons = document.querySelectorAll('#button');
+const loginPopUp = document.getElementById('loginPopUp');
+const closeLoginModal = document.getElementById('closeLoginModal');
+const loginForm = document.getElementById('loginForm');
+
+// Control del modal de registro
+const signUpPopUp = document.getElementById('signUpPopUp');
+const closeSignupModal = document.getElementById('closeSignupModal');
+const signupForm = document.getElementById('signupForm');
+
+// Enlaces para cambiar entre modales
+const openSignupFromLogin = document.getElementById('openSignupFromLogin');
+const openLoginFromSignup = document.getElementById('openLoginFromSignup');
+
+// Variables de control del carrusel
 let currentSlide = 0;
-const slideInterval = 9000; // 5 segundos
+const slideInterval = 15000;
 let autoSlide;
 
 /**
@@ -14,7 +30,6 @@ let autoSlide;
  * @param {number} index - Índice del slide a mostrar
  */
 function showSlide(index) {
-    // Asegurar que el índice esté en rango
     if (index >= slides.length) {
         currentSlide = 0;
     } else if (index < 0) {
@@ -23,14 +38,12 @@ function showSlide(index) {
         currentSlide = index;
     }
 
-    // Actualizar slides - remover ID active de todos
+    // Actualizar slides
     slides.forEach(slide => slide.removeAttribute('id'));
-    // Agregar ID active solo al slide actual
     slides[currentSlide].setAttribute('id', 'active');
 
-    // Actualizar indicadores - remover ID active de todos
+    // Actualizar indicadores
     indicators.forEach(indicator => indicator.removeAttribute('id'));
-    // Agregar ID active solo al indicador actual
     indicators[currentSlide].setAttribute('id', 'active');
 }
 
@@ -70,7 +83,64 @@ function resetAutoSlide() {
     startAutoSlide();
 }
 
-// Event listeners para controles de navegación
+// ==========================================
+// FUNCIONES DE MODAL
+// ==========================================
+
+/**
+ * Abre el modal de login
+ */
+function openLoginModal() {
+    loginPopUp.setAttribute('id', 'active');
+    stopAutoSlide();
+}
+
+/**
+ * Cierra el modal de login
+ */
+function closeLoginModalFunc() {
+    loginPopUp.setAttribute('id', 'loginPopUp');
+    startAutoSlide();
+}
+
+/**
+ * Abre el modal de registro
+ */
+function openSignupModal() {
+    signUpPopUp.setAttribute('id', 'active');
+    stopAutoSlide();
+}
+
+/**
+ * Cierra el modal de registro
+ */
+function closeSignupModalFunc() {
+    signUpPopUp.setAttribute('id', 'signUpPopUp');
+    startAutoSlide();
+}
+
+/**
+ * Cambia de modal de login a registro
+ */
+function switchToSignup(e) {
+    e.preventDefault();
+    closeLoginModalFunc();
+    setTimeout(openSignupModal, 300); // Pequeño delay para transición suave
+}
+
+/**
+ * Cambia de modal de registro a login
+ */
+function switchToLogin(e) {
+    e.preventDefault();
+    closeSignupModalFunc();
+    setTimeout(openLoginModal, 300); // Pequeño delay para transición suave
+}
+
+// ==========================================
+// EVENT LISTENERS - CARRUSEL
+// ==========================================
+
 nextBtn.addEventListener('click', () => {
     nextSlide();
     resetAutoSlide();
@@ -81,7 +151,6 @@ prevBtn.addEventListener('click', () => {
     resetAutoSlide();
 });
 
-// Event listeners para indicadores
 indicators.forEach(indicator => {
     indicator.addEventListener('click', () => {
         const slideIndex = parseInt(indicator.getAttribute('data-slide'));
@@ -90,12 +159,9 @@ indicators.forEach(indicator => {
     });
 });
 
-// Pausar cuando el mouse está sobre el carrusel
-const carousel = document.querySelector('.carouselContainer');
 carousel.addEventListener('mouseenter', stopAutoSlide);
 carousel.addEventListener('mouseleave', startAutoSlide);
 
-// Soporte para navegación con teclado
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
         prevSlide();
@@ -106,63 +172,98 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Iniciar el carrusel automático al cargar la página
-startAutoSlide();
+// ==========================================
+// EVENT LISTENERS - MODAL LOGIN
+// ==========================================
 
-// Control del modal de inicio de sesión
-const loginButtons = document.querySelectorAll('.login-btn');
-const loginModal = document.getElementById('loginModal');
-const closeModal = document.getElementById('closeModal');
-const loginForm = document.getElementById('loginForm');
-
-// Abrir modal al hacer clic en cualquier botón de inicio de sesión
+// Abrir modal de login
 loginButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        loginModal.setAttribute('id', 'active');
-        stopAutoSlide(); // Pausar el carrusel cuando se abre el modal
-    });
+    button.addEventListener('click', openLoginModal);
 });
 
-// Cerrar modal al hacer clic en la X
-closeModal.addEventListener('click', () => {
-    loginModal.setAttribute('id', 'loginModal');
-    startAutoSlide(); // Reanudar el carrusel cuando se cierra el modal
-});
+// Cerrar modal de login
+closeLoginModal.addEventListener('click', closeLoginModalFunc);
 
-// Cerrar modal al hacer clic fuera del contenido
-loginModal.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-        loginModal.setAttribute('id', 'loginModal');
-        startAutoSlide();
+// Cerrar modal al hacer clic fuera
+loginPopUp.addEventListener('click', (e) => {
+    if (e.target === loginPopUp) {
+        closeLoginModalFunc();
     }
 });
 
-// Cerrar modal con la tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && loginModal.getAttribute('id') === 'active') {
-        loginModal.setAttribute('id', 'loginModal');
-        startAutoSlide();
-    }
-});
+// Cambiar a modal de registro
+openSignupFromLogin.addEventListener('click', switchToSignup);
 
-// Manejar el envío del formulario
+// Manejar envío del formulario de login
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Obtener valores del formulario
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
     
-    // Aquí puedes agregar la lógica para procesar el inicio de sesión
     console.log('Intento de inicio de sesión:', { email, password });
-    
-    // Ejemplo: mostrar mensaje de éxito
     alert('¡Inicio de sesión exitoso! Email: ' + email);
     
-    // Cerrar el modal
-    loginModal.setAttribute('id', 'loginModal');
-    startAutoSlide();
-    
-    // Limpiar el formulario
+    closeLoginModalFunc();
     loginForm.reset();
 });
+
+// ==========================================
+// EVENT LISTENERS - MODAL SIGNUP
+// ==========================================
+
+// Cerrar modal de registro
+closeSignupModal.addEventListener('click', closeSignupModalFunc);
+
+// Cerrar modal al hacer clic fuera
+signUpPopUp.addEventListener('click', (e) => {
+    if (e.target === signUpPopUp) {
+        closeSignupModalFunc();
+    }
+});
+
+// Cambiar a modal de login
+openLoginFromSignup.addEventListener('click', switchToLogin);
+
+// Manejar envío del formulario de registro
+signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    
+    // Validar que las contraseñas coincidan
+    if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden');
+        return;
+    }
+    
+    console.log('Intento de registro:', { name, email, password });
+    alert('¡Registro exitoso! Bienvenido ' + name);
+    
+    closeSignupModalFunc();
+    signupForm.reset();
+});
+
+// ==========================================
+// EVENT LISTENERS - TECLADO (ESC)
+// ==========================================
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (loginPopUp.getAttribute('id') === 'active') {
+            closeLoginModalFunc();
+        }
+        if (signUpPopUp.getAttribute('id') === 'active') {
+            closeSignupModalFunc();
+        }
+    }
+});
+
+// ==========================================
+// INICIAR CARRUSEL
+// ==========================================
+
+startAutoSlide();
