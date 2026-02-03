@@ -27,24 +27,24 @@
 
 #button
 {
-    @include buttonStyle($buttonBackColor, $buttonTextColor, $buttonBackColorHover, $buttonTextColorHover, $buttonShadow);
+    @include buttonStyle($buttonBackColor, $buttonTextColor, $buttonBackColorHover, $buttonTextColorHover, $buttonShadow, $borderRadius);
     &:hover { animation: componentHover 0.8s; }
 }
 
 #buttonSave
 {
-    @include buttonSaveStyle($buttonSaveBackColor, $buttonTextColor, $buttonSaveBackColorHover, $buttonTextColorHover, $buttonShadow);
+    @include buttonSaveStyle($buttonSaveBackColor, $buttonTextColor, $buttonSaveBackColorHover, $buttonTextColorHover, $buttonShadow, $borderRadius);
     &:hover { animation: buttonSaveHover 0.8s; }
 }
 
 #buttonEdit
 {
-    @include buttonEditStyle($buttonEditBackColor, $buttonTextColor, $buttonEditBackColorHover, $buttonTextColorHover, $buttonShadow);
+    @include buttonEditStyle($buttonEditBackColor, $buttonTextColor, $buttonEditBackColorHover, $buttonTextColorHover, $buttonShadow, $borderRadius);
     &:hover { animation: buttonEditHover 0.8s; }
 }
 
 #buttonDelete
 {
-    @include buttonDeleteStyle($buttonDeleteBackColor, $buttonTextColor, $buttonDeleteBackColorHover, $buttonTextColorHover, $buttonShadow);
+    @include buttonDeleteStyle($buttonDeleteBackColor, $buttonTextColor, $buttonDeleteBackColorHover, $buttonTextColorHover, $buttonShadow, $borderRadius);
     &:hover { animation: buttonDeleteHover 0.8s; }
 }
