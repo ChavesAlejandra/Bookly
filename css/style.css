@@ -1,0 +1,753 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Distillery Display W00 Regular";
+  src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot");
+  src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff") format("woff"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.svg#Distillery Display W00 Regular") format("svg");
+}
+@font-face {
+  font-family: "Tenor Sans";
+  src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot");
+  src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff") format("woff"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.svg#Tenor Sans") format("svg");
+}
+@keyframes buttonHover {
+  0% {
+    background-color: #80471C;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #643816;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonSaveHover {
+  0% {
+    background-color: #2F4F4F;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #213838;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonEditHover {
+  0% {
+    background-color: #d17630;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #80471C;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonDeleteHover {
+  0% {
+    background-color: #b93737;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #722323;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+#button {
+  background-color: #80471C;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+#button:hover {
+  background-color: #643816;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#button:hover {
+  animation: componentHover 0.8s;
+}
+
+#buttonSave {
+  background-color: #2F4F4F;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+#buttonSave:hover {
+  background-color: #213838;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonSave:hover {
+  animation: buttonSaveHover 0.8s;
+}
+
+#buttonEdit {
+  background-color: #d17630;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+#buttonEdit:hover {
+  background-color: #80471C;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonEdit:hover {
+  animation: buttonEditHover 0.8s;
+}
+
+#buttonDelete {
+  background-color: #b93737;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+#buttonDelete:hover {
+  background-color: #722323;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonDelete:hover {
+  animation: buttonDeleteHover 0.8s;
+}
+
+body {
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+p, ul, li, a, span, div, button {
+  font-family: "Tenor Sans", sans-serif;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.carouselContainer__slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.carouselContainer__slide#active {
+  opacity: 1;
+}
+.carouselContainer__slide#reverse {
+  flex-direction: row-reverse;
+}
+.carouselContainer__slide__img {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.carouselContainer__slide__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide__img {
+    width: 100%;
+    height: 50%;
+  }
+}
+.carouselContainer__slide__text {
+  width: 50%;
+  height: 100%;
+  background: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  color: #2c1b1b;
+  position: relative;
+  z-index: 2;
+}
+.carouselContainer__slide__text h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+.carouselContainer__slide__text p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+  opacity: 0.95;
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide__text {
+    width: 100%;
+    height: 50%;
+    padding: 40px;
+  }
+  .carouselContainer__slide__text h1 {
+    font-size: 32px;
+  }
+  .carouselContainer__slide__text p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 425px) {
+  .carouselContainer__slide__text {
+    padding: 20px;
+  }
+}
+@media (max-width: 320px) {
+  .carouselContainer__slide__text h1 {
+    text-align: center;
+  }
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide {
+    flex-direction: column;
+  }
+}
+.carouselContainer__controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 100;
+  pointer-events: none;
+}
+@media (max-width: 968px) {
+  .carouselContainer__controls {
+    top: 45%;
+  }
+}
+.carouselContainer__controls__btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: all;
+}
+.carouselContainer__controls__btn#prevBtn {
+  left: 10px;
+}
+.carouselContainer__controls__btn#nextBtn {
+  right: 10px;
+}
+.carouselContainer__controls__btn img {
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px #F0EBE1);
+  transition: filter 0.3s ease;
+}
+.carouselContainer__controls__btn:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 1439px) {
+  .carouselContainer__controls__btn {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (max-width: 968px) {
+  .carouselContainer__controls__btn {
+    width: 75px;
+    height: 75px;
+  }
+  .carouselContainer__controls__btn#prevBtn {
+    left: 5px;
+  }
+  .carouselContainer__controls__btn#nextBtn {
+    right: 5px;
+  }
+}
+@media (max-width: 425px) {
+  .carouselContainer__controls__btn {
+    width: 60px;
+    height: 60px;
+  }
+}
+.carouselContainer__indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+.carouselContainer__indicators__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+.carouselContainer__indicators__indicator#active {
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.3);
+}
+.carouselContainer__indicators__indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.loginPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(127, 140, 141, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.loginPopUp#active {
+  opacity: 1;
+  visibility: visible;
+}
+.loginPopUp#active .loginPopUp__content,
+.loginPopUp#active .signUpPopUp__content {
+  transform: scale(1);
+}
+.loginPopUp__content {
+  background: #6A2C2C;
+  color: #F0EBE1;
+  padding: 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: -10px 20px 30px #482C2C;
+}
+.loginPopUp__content h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media (max-width: 425px) {
+  .loginPopUp__content h2 {
+    margin-top: 10px;
+  }
+}
+.loginPopUp__content__text {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #7F8C8D;
+}
+@media (max-width: 425px) {
+  .loginPopUp__content__text {
+    margin-bottom: 15px;
+  }
+}
+.loginPopUp__content__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginPopUp__content__close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+@media (max-width: 425px) {
+  .loginPopUp__content__close {
+    top: 5px;
+    right: 5px;
+  }
+}
+.loginPopUp__content__formGroup {
+  margin-bottom: 20px;
+}
+.loginPopUp__content__formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  color: #F0EBE1;
+}
+.loginPopUp__content__formGroup input {
+  color: #80471C;
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.loginPopUp__content__formGroup input:focus {
+  outline: none;
+  border-color: #2F4F4F;
+}
+.loginPopUp__content__formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+.loginPopUp__content__formOptions__checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.loginPopUp__content__formOptions__checkboxLabel input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+.loginPopUp__content__formOptions__checkboxLabel span {
+  color: #F0EBE1;
+}
+.loginPopUp__content__formOptions__forgotPassword {
+  color: #7F8C8D;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.loginPopUp__content__formOptions__forgotPassword:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+.loginPopUp__content__submitBtn {
+  width: 100%;
+  padding: 15px;
+  background: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.loginPopUp__content__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #643816;
+  color: #7F8C8D;
+}
+.loginPopUp__content__signupLink, .loginPopUp__content__loginLink {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+.loginPopUp__content__signupLink a, .loginPopUp__content__loginLink a {
+  color: #7F8C8D;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.loginPopUp__content__signupLink a:hover, .loginPopUp__content__loginLink a:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+
+.signUpPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(127, 140, 141, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.signUpPopUp#active {
+  opacity: 1;
+  visibility: visible;
+}
+.signUpPopUp#active .loginPopUp__content,
+.signUpPopUp#active .signUpPopUp__content {
+  transform: scale(1);
+}
+.signUpPopUp__content {
+  background: #6A2C2C;
+  color: #F0EBE1;
+  padding: 30px;
+  border-radius: 10px;
+  width: 50%;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: -10px 20px 30px #482C2C;
+}
+@media (max-width: 768px) {
+  .signUpPopUp__content {
+    width: 80%;
+  }
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content {
+    width: 90%;
+  }
+}
+.signUpPopUp__content h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content h2 {
+    margin-top: 10px;
+  }
+}
+.signUpPopUp__content__text {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #7F8C8D;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__text {
+    margin-bottom: 15px;
+  }
+}
+.signUpPopUp__content__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signUpPopUp__content__close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__close {
+    top: 5px;
+    right: 5px;
+  }
+}
+.signUpPopUp__content__formGroup {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__formGroup {
+    margin-bottom: 10px;
+    grid-template-columns: 40% 60%;
+  }
+}
+.signUpPopUp__content__formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  color: #F0EBE1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__formGroup label {
+    justify-content: left;
+  }
+}
+.signUpPopUp__content__formGroup input {
+  color: #80471C;
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.signUpPopUp__content__formGroup input:focus {
+  outline: none;
+  border-color: #2F4F4F;
+}
+.signUpPopUp__content__formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+.signUpPopUp__content__formOptions__checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.signUpPopUp__content__formOptions__checkboxLabel input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+.signUpPopUp__content__formOptions__checkboxLabel span {
+  color: #F0EBE1;
+}
+.signUpPopUp__content__formOptions__forgotPassword {
+  color: #7F8C8D;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.signUpPopUp__content__formOptions__forgotPassword:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+.signUpPopUp__content__submitBtn {
+  width: 100%;
+  padding: 15px;
+  background: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.signUpPopUp__content__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #643816;
+  color: #7F8C8D;
+}
+.signUpPopUp__content__signupLink, .signUpPopUp__content__loginLink {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+.signUpPopUp__content__signupLink a, .signUpPopUp__content__loginLink a {
+  color: #7F8C8D;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signUpPopUp__content__signupLink a:hover, .signUpPopUp__content__loginLink a:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */
