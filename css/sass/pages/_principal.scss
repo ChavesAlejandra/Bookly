@@ -1,0 +1,126 @@
+@use '../utilities/_reset.scss' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+@use '../components/_buttons.scss' as *;
+@use '../layout/_header.scss' as *;
+@use '../layout/_footer.scss' as *;
+
+article {
+    background-color: $bodyBackColor;
+    color: $colorText;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p,
+ul,
+li,
+a,
+span,
+div,
+button {
+    font-family: $fontText;
+}
+
+.libros {
+    &__flipCard {
+        background-color: transparent;
+        width: 300px;
+        height: 350px;
+        perspective: 1000px;
+        font-family: sans-serif;
+        box-shadow: none;
+
+        &__inner {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &:hover {
+                transform: rotateY(180deg);
+            }
+
+            &__front {
+                box-shadow: $boxShadow;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: $borderRadius;
+                background: $cardBackColor ;
+                color: $cardTextColor;
+                padding: 5px;
+
+                &__imagen{
+                    width: 120px;
+                    height: 60px;
+                    border-radius: $borderRadius;
+
+                }
+
+                &__title {
+                    font-size: 25px;
+                    font-weight: 900;
+                    text-align: center;
+                }
+
+                &__autor{
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+
+            &__back {
+                box-shadow: $boxShadow;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                border-color: $borderColor;
+                border-radius: $borderRadius;
+                background: $cardBackColorHover;
+                color: $cardTextColor;
+                transform: rotateY(180deg);
+                padding: 5px;
+
+                &__title {
+                    font-size: 25px;
+                    font-weight: 900;
+                    text-align: center;
+                }
+
+                &__texto{
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+        }
+
+    }
+}
