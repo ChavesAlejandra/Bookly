@@ -273,6 +273,89 @@ a {
   border-radius: 10px;
 }
 
+.libros__flipCard {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+  font-family: sans-serif;
+  box-shadow: none;
+}
+.libros__flipCard__inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.libros__flipCard__inner:hover {
+  transform: rotateY(180deg);
+}
+.libros__flipCard__inner__front {
+  box-shadow: -10px 20px 30px #482C2C;
+  display: grid;
+  grid-template-rows: 80% 10% 10%;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  background: #482C2C;
+  color: #F0EBE1;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.libros__flipCard__inner__front__imagen {
+  width: 159.5px;
+}
+.libros__flipCard__inner__front__imagen img {
+  border-radius: 10px;
+}
+.libros__flipCard__inner__front__title {
+  height: 30px;
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+}
+.libros__flipCard__inner__front__autor {
+  height: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+.libros__flipCard__inner__back {
+  box-shadow: -10px 20px 30px #482C2C;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: solid none;
+  border-radius: 10px;
+  background: #2F4F4F;
+  color: #F0EBE1;
+  transform: rotateY(180deg);
+  padding: 5px;
+}
+.libros__flipCard__inner__back__title {
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+}
+.libros__flipCard__inner__back__texto {
+  font-size: 18px;
+  text-align: center;
+}
+.libros__flipCard__inner__front, .libros__flipCard__inner__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 body {
   overflow: hidden;
 }
@@ -837,6 +920,10 @@ p, ul, li, a, span, div, button {
   text-decoration: underline;
 }
 
+body {
+  overflow: scroll;
+}
+
 article {
   background-color: #F0EBE1;
   color: #2c1b1b;
@@ -844,6 +931,9 @@ article {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 100%;
+  gap: 40px;
+  margin: 40px 0;
 }
 
 img {
@@ -869,79 +959,6 @@ span,
 div,
 button {
   font-family: "Tenor Sans", sans-serif;
-}
-
-.libros__flipCard {
-  background-color: transparent;
-  width: 300px;
-  height: 350px;
-  perspective: 1000px;
-  font-family: sans-serif;
-  box-shadow: none;
-}
-.libros__flipCard__inner {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-.libros__flipCard__inner:hover {
-  transform: rotateY(180deg);
-}
-.libros__flipCard__inner__front {
-  box-shadow: -10px 20px 30px #482C2C;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  background: #482C2C;
-  color: #F0EBE1;
-  padding: 5px;
-}
-.libros__flipCard__inner__front__imagen {
-  width: 120px;
-  height: 60px;
-  border-radius: 10px;
-}
-.libros__flipCard__inner__front__title {
-  font-size: 25px;
-  font-weight: 900;
-  text-align: center;
-}
-.libros__flipCard__inner__front__autor {
-  font-size: 18px;
-  text-align: center;
-}
-.libros__flipCard__inner__back {
-  box-shadow: -10px 20px 30px #482C2C;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-color: solid none;
-  border-radius: 10px;
-  background: #7F8C8D;
-  color: #F0EBE1;
-  transform: rotateY(180deg);
-  padding: 5px;
-}
-.libros__flipCard__inner__back__title {
-  font-size: 25px;
-  font-weight: 900;
-  text-align: center;
-}
-.libros__flipCard__inner__back__texto {
-  font-size: 18px;
-  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
