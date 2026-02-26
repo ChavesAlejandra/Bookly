@@ -8,12 +8,14 @@
 
 body{
     overflow: scroll;
+    width: 100%;
 }
 
-article {
+.content {
     background-color: $bodyBackColor;
     color: $colorText;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -33,6 +35,7 @@ h6 {
     font-family: $fontTitle;
     letter-spacing: 2px;
     font-weight: bold;
+
 }
 
 p,
@@ -44,4 +47,3 @@ div,
 button {
     font-family: $fontText;
 }
-
