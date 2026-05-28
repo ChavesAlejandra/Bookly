@@ -1,42 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/principal.js"></script>
 </head>
+
 <body>
-    <header>
-        <div class="logo"><img src="../css/img/LogoCom.png" alt="Logo"></div>
-        <div class="search"><input type="search" placeholder="Buscar..."></div>
-        <div class="user"> <img src="../css/img/user.png" alt="user"></div>
+    <header class="header">
+        <div class="header__logo"><a href="./principal.html"><img src="../css/img/LogoHeader.png" alt="Logo"></a></div>
+        <div class="header__search"><input type="search" placeholder="Buscar..."></div>
+        <div class="header__user"> <img src="../css/img/user.png" alt="user"></div>
     </header>
-    <article>
-        <div class="libros">
-            <div class="libros__flipCard">
-            <div class="libros__flipCard__inner">
-                <div class="libros__flipCard__inner__front">
-                    <div class="libros__flipCard__inner__front__imagen">
-                        <img src="../css/img/biblioteca.jpg" alt="imagen">
-                    </div>
-                    <div class="libros__flipCard__inner__front__title">
-                        <h3>Titulo</h3>
-                    </div>
-                    <div class="libros__flipCard__inner__front__autor">
-                        <p>Autor</p>
+
+    <article class="content">
+        <div class="content__misLibros">
+            <div class="content__misLibros__title">
+                <h1>Mis Libros</h1>
+            </div>
+            <div class="content__misLibros__libros">
+
+                <div class="content__misLibros__libros__libro">
+                    <div class="content__misLibros__libros__libro__flipCard">
+                        <div class="content__misLibros__libros__libro__flipCard__inner">
+                            <div class="content__misLibros__libros__libro__flipCard__inner__front">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__misLibros__libros__libro__flipCard__inner__back">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="libros__flipCard__inner__back">
-                    <div class="libros__flipCard__inner__back__title">
-                        <h3>Descripcion</h3>
+
+                <div class="content__misLibros__libros__libro">
+                    <div class="content__misLibros__libros__libro__flipCard">
+                        <div class="content__misLibros__libros__libro__flipCard__inner">
+                            <div class="content__misLibros__libros__libro__flipCard__inner__front">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__misLibros__libros__libro__flipCard__inner__back">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="libros__flipCard__inner__back__texto">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos iure, eligendi expedita molestias aliquid veniam recusandae necessitatibus praesentium. Obcaecati eligendi id porro at fugiat! Sequi maxime aperiam cupiditate quae numquam.</p>
+                </div>
+
+                <div class="content__misLibros__libros__libro">
+                    <div class="content__misLibros__libros__libro__flipCard">
+                        <div class="content__misLibros__libros__libro__flipCard__inner">
+                            <div class="content__misLibros__libros__libro__flipCard__inner__front">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__misLibros__libros__libro__flipCard__inner__back">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__misLibros__libros__libro">
+                    <div class="content__misLibros__libros__libro__flipCard">
+                        <div class="content__misLibros__libros__libro__flipCard__inner">
+                            <div class="content__misLibros__libros__libro__flipCard__inner__front">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__misLibros__libros__libro__flipCard__inner__back">
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__misLibros__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="content__misLibros__verMas"><h4>Ver más</h4></div>
         </div>
+
+        <div class="content__losFavoritos">
+            <div class="content__losFavoritos__title">
+                <h1>Los Favoritos</h1>
+            </div>
+            <div class="content__losFavoritos__libros">
+                
+                <div class="content__losFavoritos__libros__libro">
+                    <div class="content__losFavoritos__libros__libro__flipCard">
+                        <div class="content__losFavoritos__libros__libro__flipCard__inner">
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__front">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__back">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__losFavoritos__libros__libro">
+                    <div class="content__losFavoritos__libros__libro__flipCard">
+                        <div class="content__losFavoritos__libros__libro__flipCard__inner">
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__front">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__back">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__losFavoritos__libros__libro">
+                    <div class="content__losFavoritos__libros__libro__flipCard">
+                        <div class="content__losFavoritos__libros__libro__flipCard__inner">
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__front">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__back">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__losFavoritos__libros__libro">
+                    <div class="content__losFavoritos__libros__libro__flipCard">
+                        <div class="content__losFavoritos__libros__libro__flipCard__inner">
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__front">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__losFavoritos__libros__libro__flipCard__inner__back">
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__losFavoritos__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__losFavoritos__verMas"><h4>Ver más</h4></div>
+        </div>
+
+        <div class="content__encuentra">
+            <div class="content__encuentra__title">
+                <h1>Encuentra<strong style="font-weight: bold;">Tú</strong>  Próxima Lectura</h1>
+            </div>
+            <div class="content__encuentra__libros">
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content__encuentra__libros__libro">
+                    <div class="content__encuentra__libros__libro__flipCard">
+                        <div class="content__encuentra__libros__libro__flipCard__inner">
+                            <div class="content__encuentra__libros__libro__flipCard__inner__front">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__imagen">
+                                    <img src="../css/img/dracula.png" alt="imagen">
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__title">
+                                    <h3>Drácula</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__front__autor">
+                                    <p>Bram Stoker</p>
+                                </div>
+                            </div>
+                            <div class="content__encuentra__libros__libro__flipCard__inner__back">
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__title">
+                                    <h3>Descripción</h3>
+                                </div>
+                                <div class="content__encuentra__libros__libro__flipCard__inner__back__texto">
+                                    <p> Es una novela gótica sobre el conde Drácula, un vampiro
+                                        que viaja de Transilvania a Inglaterra para expandir su poder.
+                                        Un grupo de personas, liderado por el profesor Van Helsing,
+                                        se une para detenerlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__encuentra__verMas"><h4>Ver más</h4></div>
         </div>
     </article>
     <footer>
@@ -51,5 +464,7 @@
             <div class="socialMedia__tikTok"><img src="../css/img/tikTok.png" alt="tikTok"></div>
         </div>
     </footer>
+
 </body>
+
 </html>
