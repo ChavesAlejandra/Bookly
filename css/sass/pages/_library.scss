@@ -1,0 +1,47 @@
+@use '../utilities/_reset.scss' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+@use '../components/_buttons.scss' as *;
+@use '../layout/_header.scss' as *;
+@use '../layout/_footer.scss' as *;
+@use '../components/_card.scss' as *;
+
+body{
+    overflow: scroll;
+}
+
+article {
+    background-color: $bodyBackColor;
+    color: $colorText;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p,
+ul,
+li,
+a,
+span,
+div,
+button {
+    font-family: $fontText;
+}
+

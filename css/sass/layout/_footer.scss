@@ -1,0 +1,52 @@
+@use '../utilities/_reset.scss' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+@use '../components/_buttons.scss' as *;
+
+
+footer
+{
+    background-color: $headerFooterBackColor;
+    color: $headerFooterTextColor;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+a{color: $headerFooterTextColor;}
+
+
+.logo{
+    width: 100px;
+
+
+    img{ border-radius: $borderRadius;}
+}
+
+
+.links{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+
+    a{
+        padding-bottom: 15px;
+        font-size: large;
+    }
+}
+
+
+.socialMedia{
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    div{width: 50px;}
+    img{ border-radius: $borderRadius;}
+}
