@@ -1,0 +1,55 @@
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+
+@keyframes buttonHover {
+    0%   { background-color: $buttonBackColor;   color: $buttonTextColor; }
+    100% { background-color: $buttonBackColorHover; color: $buttonTextColorHover; box-shadow: $buttonShadow; }
+}
+@keyframes buttonSaveHover {
+    0%   { background-color: $buttonSaveBackColor;   color: $buttonTextColor; }
+    100% { background-color: $buttonSaveBackColorHover; color: $buttonTextColorHover; box-shadow: $buttonShadow; }
+}
+@keyframes buttonEditHover {
+    0%   { background-color: $buttonEditBackColor;   color: $buttonTextColor; }
+    100% { background-color: $buttonEditBackColorHover; color: $buttonTextColorHover; box-shadow: $buttonShadow; }
+}
+@keyframes buttonDeleteHover {
+    0%   { background-color: $buttonDeleteBackColor;   color: $buttonTextColor; }
+    100% { background-color: $buttonDeleteBackColorHover; color: $buttonTextColorHover; box-shadow: $buttonShadow; }
+}
+
+#button {
+    @include buttonStyle(
+        $buttonBackColor, $buttonTextColor,
+        $buttonBackColorHover, $buttonTextColorHover,
+        $buttonShadow, $borderRadius
+    );
+    &:hover { animation: buttonHover 0.8s; }
+}
+
+#buttonSave {
+    @include buttonSaveStyle(
+        $buttonSaveBackColor, $buttonTextColor,
+        $buttonSaveBackColorHover, $buttonTextColorHover,
+        $buttonShadow, $borderRadius
+    );
+    &:hover { animation: buttonSaveHover 0.8s; }
+}
+
+#buttonEdit {
+    @include buttonEditStyle(
+        $buttonEditBackColor, $buttonTextColor,
+        $buttonEditBackColorHover, $buttonTextColorHover,
+        $buttonShadow, $borderRadius
+    );
+    &:hover { animation: buttonEditHover 0.8s; }
+}
+
+#buttonDelete {
+    @include buttonDeleteStyle(
+        $buttonDeleteBackColor, $buttonTextColor,
+        $buttonDeleteBackColorHover, $buttonTextColorHover,
+        $buttonShadow, $borderRadius
+    );
+    &:hover { animation: buttonDeleteHover 0.8s; }
+}

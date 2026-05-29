@@ -1,0 +1,248 @@
+@use '../utilities/_vars.scss' as *;
+
+// ── Popup libro ───────────────────────────────────────────────────────────────
+.libroPopUp {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 27, 27, 0.70);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transitionBase, visibility $transitionBase;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+
+        .libroPopUp__content {
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    &__content {
+        background: $carrouselPopUpBackColor;
+        color: $cardTextColor;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        width: 90%;
+        max-width: 520px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        transform: scale(0.85) translateY(30px);
+        transition: transform 0.35s ease;
+        display: flex;
+        flex-direction: column;
+
+        // ── Cabecera: portada + info ──────────────────────────────────────────
+        &__header {
+            display: flex;
+            gap: 20px;
+            padding: 28px 28px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+
+            &__portada {
+                flex-shrink: 0;
+                width: 110px;
+                height: 155px;
+                border-radius: 8px;
+                overflow: hidden;
+                background: $cardBackColor;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            &__info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 8px;
+
+                h2 {
+                    font-family: $fontTitle;
+                    font-size: 22px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    line-height: 1.3;
+                    color: $cardTextColor;
+                }
+
+                &__autor {
+                    font-family: $fontText;
+                    font-size: 15px;
+                    color: $carrouselPopUpImportantColor;
+                }
+
+                &__genero {
+                    display: inline-block;
+                    font-family: $fontText;
+                    font-size: 12px;
+                    background: rgba(255,255,255,0.12);
+                    color: $cardTextColor;
+                    padding: 4px 10px;
+                    border-radius: 20px;
+                    width: fit-content;
+                }
+            }
+        }
+
+        // ── Descripción ───────────────────────────────────────────────────────
+        &__descripcion {
+            padding: 18px 28px;
+            font-family: $fontText;
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(240,235,225,0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        // ── Acciones ──────────────────────────────────────────────────────────
+        &__acciones {
+            padding: 20px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            &__titulo {
+                font-family: $fontTitle;
+                font-size: 15px;
+                letter-spacing: 1px;
+                color: $carrouselPopUpImportantColor;
+                text-transform: uppercase;
+            }
+
+            // Estado: botones radio visuales
+            &__estados {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                label {
+                    flex: 1;
+                    min-width: 90px;
+                    cursor: pointer;
+
+                    input[type="radio"] { display: none; }
+
+                    span {
+                        display: block;
+                        text-align: center;
+                        padding: 10px 8px;
+                        border-radius: $borderRadius;
+                        border: 2px solid rgba(255,255,255,0.2);
+                        font-family: $fontText;
+                        font-size: 13px;
+                        color: $cardTextColor;
+                        transition: all $transitionBase;
+                        background: rgba(255,255,255,0.05);
+                    }
+
+                    input:checked + span {
+                        border-color: $buttonBackColor;
+                        background: $buttonBackColor;
+                        color: $buttonTextColor;
+                        font-weight: bold;
+                    }
+
+                    &:hover span {
+                        border-color: rgba(255,255,255,0.5);
+                        background: rgba(255,255,255,0.1);
+                    }
+                }
+            }
+
+            // Favorito toggle
+            &__favorito {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                width: fit-content;
+
+                input[type="checkbox"] { display: none; }
+
+                &__icon {
+                    font-size: 26px;
+                    transition: transform 0.2s ease, color 0.2s ease;
+                    color: rgba(255,255,255,0.3);
+                }
+
+                input:checked ~ &__icon,
+                &.checked &__icon {
+                    color: #e74c3c;
+                    transform: scale(1.2);
+                }
+
+                &__label {
+                    font-family: $fontText;
+                    font-size: 15px;
+                    color: $cardTextColor;
+                }
+            }
+
+            // Botones guardar / eliminar
+            &__botones {
+                display: flex;
+                gap: 12px;
+                margin-top: 6px;
+
+                button {
+                    flex: 1;
+                    padding: 12px;
+                    border: none;
+                    border-radius: $borderRadius;
+                    font-family: $fontText;
+                    font-size: 15px;
+                    cursor: pointer;
+                    transition: all $transitionBase;
+                    font-weight: bold;
+
+                    &.btn-guardar {
+                        background: $buttonSaveBackColor;
+                        color: $buttonTextColor;
+                        &:hover { background: $buttonSaveBackColorHover; transform: translateY(-2px); }
+                    }
+
+                    &.btn-eliminar {
+                        background: $buttonDeleteBackColor;
+                        color: $buttonTextColor;
+                        &:hover { background: $buttonDeleteBackColorHover; transform: translateY(-2px); }
+                    }
+                }
+            }
+        }
+
+        // ── Cerrar ────────────────────────────────────────────────────────────
+        &__close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: $cardTextColor;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background $transitionBase, transform $transitionBase;
+            z-index: 10;
+
+            &:hover { background: rgba(255,255,255,0.25); transform: rotate(90deg); }
+        }
+    }
+}

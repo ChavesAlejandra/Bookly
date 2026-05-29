@@ -1,0 +1,82 @@
+@use '../utilities/_reset.scss' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+@use '../components/_buttons.scss' as *;
+@use '../layout/_header.scss' as *;
+@use '../layout/_footer.scss' as *;
+@use '../components/_card.scss' as *;
+
+body { overflow: scroll; }
+
+article {
+    background-color: $bodyBackColor;
+    color: $colorText;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+}
+
+img { width: 100%; }
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p,ul,li,a,span,div,button { font-family: $fontText; }
+
+// ── Títulos de sección ────────────────────────────────────────────────────────
+.seccion__titulo {
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    font-family: $fontTitle;
+    color: $colorText;
+    padding: 30px 0 10px;
+    letter-spacing: 2px;
+}
+
+.seccion__verMas {
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+    font-family: $fontTitle;
+    color: $colorImportantText;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color $transitionBase;
+
+    &:hover { color: $buttonBackColor; }
+}
+
+// ── Filtros ───────────────────────────────────────────────────────────────────
+.filtros {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px 0;
+
+    &__btn {
+        padding: 8px 22px;
+        border: 2px solid $buttonBackColor;
+        border-radius: 20px;
+        background: transparent;
+        color: $buttonBackColor;
+        font-family: $fontText;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all $transitionBase;
+
+        &:hover, &.active {
+            background: $buttonBackColor;
+            color: $buttonTextColor;
+        }
+    }
+}

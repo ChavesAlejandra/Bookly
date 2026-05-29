@@ -1,0 +1,64 @@
+@use '../utilities/_reset.scss' as *;
+@use '../utilities/_vars.scss' as *;
+@use '../utilities/_mixins.scss' as *;
+@use '../components/_buttons.scss' as *;
+@use '../layout/_header.scss' as *;
+@use '../layout/_footer.scss' as *;
+@use '../components/_card.scss' as *;
+
+body { overflow: scroll; width: 100%; }
+
+.content {
+    background-color: $bodyBackColor;
+    color: $colorText;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+img { width: 100%; }
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $fontTitle;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p,ul,li,a,span,div,button { font-family: $fontText; }
+
+// ── Skeleton loader ───────────────────────────────────────────────────────────
+.skeleton {
+    background: linear-gradient(90deg, #c9b8a8 25%, #d4c5b5 50%, #c9b8a8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: $borderRadius;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+// ── Toast notificación ────────────────────────────────────────────────────────
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: $buttonSaveBackColor;
+    color: $buttonTextColor;
+    padding: 14px 24px;
+    border-radius: $borderRadius;
+    font-family: $fontText;
+    font-size: 15px;
+    box-shadow: $boxShadow;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity $transitionBase, transform $transitionBase;
+
+    &.show { opacity: 1; transform: translateY(0); }
+    &.error { background: $buttonDeleteBackColor; }
+}

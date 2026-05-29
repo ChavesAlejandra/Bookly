@@ -1,0 +1,2834 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Distillery Display W00 Regular";
+  src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot");
+  src: url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.woff") format("woff"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/abe9e9e44fb3d470e5ecd486b158ce78.svg#Distillery Display W00 Regular") format("svg");
+}
+@font-face {
+  font-family: "Tenor Sans";
+  src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot");
+  src: url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.woff") format("woff"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/31703b2501da7c02920ea1c47959ba37.svg#Tenor Sans") format("svg");
+}
+.header {
+  background-color: #6A2C2C;
+  color: #F0EBE1;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+.header__logo {
+  width: 250px;
+}
+.header__logo img {
+  border-radius: 10px;
+}
+.header__search {
+  width: 300px;
+}
+.header__search input {
+  width: 100%;
+  height: 45px;
+  background-color: #F0EBE1;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: #6A2C2C;
+  border: none;
+  outline: none;
+  font-family: "Tenor Sans", sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+.header__search input::placeholder {
+  color: #80471C;
+}
+.header__search input:focus {
+  box-shadow: 0 0 0 3px rgba(128, 71, 28, 0.3);
+}
+.header__user {
+  width: 50px;
+  cursor: pointer;
+  position: relative;
+}
+.header__user img {
+  border-radius: 10px;
+}
+.header__user__menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #6A2C2C;
+  border-radius: 10px;
+  box-shadow: -10px 20px 30px #482C2C;
+  min-width: 160px;
+  z-index: 600;
+  overflow: hidden;
+}
+.header__user__menu.active {
+  display: block;
+}
+.header__user__menu a, .header__user__menu button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  color: #F0EBE1;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.header__user__menu a:hover, .header__user__menu button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 768px) {
+  .header {
+    height: 100px;
+  }
+  .header__logo {
+    width: 160px;
+  }
+  .header__search {
+    width: 200px;
+  }
+}
+@media (max-width: 480px) {
+  .header__search {
+    width: 140px;
+  }
+  .header__search input {
+    font-size: 15px;
+  }
+}
+
+footer {
+  background-color: #6A2C2C;
+  color: #F0EBE1;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a {
+  color: #F0EBE1;
+}
+
+.logo {
+  width: 100px;
+}
+.logo img {
+  border-radius: 10px;
+}
+
+.links {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.links a {
+  padding-bottom: 15px;
+  font-size: large;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.links a:hover {
+  color: #7F8C8D;
+}
+
+.socialMedia {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.socialMedia div {
+  width: 50px;
+}
+.socialMedia img {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.socialMedia img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes buttonHover {
+  0% {
+    background-color: #80471C;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #643816;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonSaveHover {
+  0% {
+    background-color: #2F4F4F;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #213838;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonEditHover {
+  0% {
+    background-color: #d17630;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #80471C;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+@keyframes buttonDeleteHover {
+  0% {
+    background-color: #b93737;
+    color: #F0EBE1;
+  }
+  100% {
+    background-color: #722323;
+    color: #7F8C8D;
+    box-shadow: 0 5px 15px #F0EBE1;
+  }
+}
+#button {
+  background-color: #80471C;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#button:hover {
+  background-color: #643816;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#button:hover {
+  animation: buttonHover 0.8s;
+}
+
+#buttonSave {
+  background-color: #2F4F4F;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#buttonSave:hover {
+  background-color: #213838;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonSave:hover {
+  animation: buttonSaveHover 0.8s;
+}
+
+#buttonEdit {
+  background-color: #d17630;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#buttonEdit:hover {
+  background-color: #80471C;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonEdit:hover {
+  animation: buttonEditHover 0.8s;
+}
+
+#buttonDelete {
+  background-color: #b93737;
+  color: #F0EBE1;
+  margin-top: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#buttonDelete:hover {
+  background-color: #722323;
+  color: #7F8C8D;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+#buttonDelete:hover {
+  animation: buttonDeleteHover 0.8s;
+}
+
+.libros__flipCard {
+  background-color: transparent;
+  width: 280px;
+  height: 360px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.libros__flipCard:hover .libros__flipCard__inner {
+  transform: rotateY(180deg);
+}
+.libros__flipCard__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+.libros__flipCard__inner__front, .libros__flipCard__inner__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.libros__flipCard__inner__front {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #482C2C;
+  color: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 14px;
+}
+.libros__flipCard__inner__front__imagen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.libros__flipCard__inner__front__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.libros__flipCard__inner__front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+}
+.libros__flipCard__inner__front__title {
+  position: relative;
+  z-index: 2;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.2;
+}
+.libros__flipCard__inner__front__autor {
+  position: relative;
+  z-index: 2;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  color: #7F8C8D;
+  padding: 3px 10px 0;
+  text-align: center;
+}
+.libros__flipCard__inner__back {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #2F4F4F;
+  color: #F0EBE1;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 16px;
+  pointer-events: all;
+}
+.libros__flipCard__inner__back__title {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.libros__flipCard__inner__back__texto {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+  color: rgba(240, 235, 225, 0.9);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.libros__flipCard__inner__back__abrir {
+  display: flex;
+  justify-content: center;
+}
+.libros__flipCard__inner__back__abrir .btn-abrir-popup {
+  background-color: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.libros__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+  background-color: #643816;
+  transform: translateY(-2px);
+}
+@media (max-width: 1440px) {
+  .libros__flipCard {
+    background-color: transparent;
+    width: 240px;
+    height: 320px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .libros__flipCard:hover .libros__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .libros__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .libros__flipCard__inner__front, .libros__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .libros__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .libros__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .libros__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .libros__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .libros__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .libros__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .libros__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .libros__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .libros__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .libros__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .libros__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .libros__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+@media (max-width: 585px) {
+  .libros__flipCard {
+    background-color: transparent;
+    width: 200px;
+    height: 270px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .libros__flipCard:hover .libros__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .libros__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .libros__flipCard__inner__front, .libros__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .libros__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .libros__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .libros__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .libros__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .libros__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .libros__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .libros__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .libros__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .libros__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .libros__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .libros__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .libros__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+
+.content__misLibros {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 460px;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+.content__misLibros__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__misLibros__libros {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 0;
+}
+@media (max-width: 1150px) {
+  .content__misLibros__libros {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+  }
+}
+@media (max-width: 535px) {
+  .content__misLibros__libros {
+    grid-template-columns: 1fr;
+  }
+}
+.content__misLibros__libros__libro {
+  cursor: pointer;
+}
+.content__misLibros__libros__libro__flipCard {
+  background-color: transparent;
+  width: 240px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.content__misLibros__libros__libro__flipCard:hover .content__misLibros__libros__libro__flipCard__inner {
+  transform: rotateY(180deg);
+}
+.content__misLibros__libros__libro__flipCard__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+.content__misLibros__libros__libro__flipCard__inner__front, .content__misLibros__libros__libro__flipCard__inner__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content__misLibros__libros__libro__flipCard__inner__front {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #482C2C;
+  color: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 14px;
+}
+.content__misLibros__libros__libro__flipCard__inner__front__imagen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.content__misLibros__libros__libro__flipCard__inner__front__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.content__misLibros__libros__libro__flipCard__inner__front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+}
+.content__misLibros__libros__libro__flipCard__inner__front__title {
+  position: relative;
+  z-index: 2;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.2;
+}
+.content__misLibros__libros__libro__flipCard__inner__front__autor {
+  position: relative;
+  z-index: 2;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  color: #7F8C8D;
+  padding: 3px 10px 0;
+  text-align: center;
+}
+.content__misLibros__libros__libro__flipCard__inner__back {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #2F4F4F;
+  color: #F0EBE1;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 16px;
+  pointer-events: all;
+}
+.content__misLibros__libros__libro__flipCard__inner__back__title {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.content__misLibros__libros__libro__flipCard__inner__back__texto {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+  color: rgba(240, 235, 225, 0.9);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.content__misLibros__libros__libro__flipCard__inner__back__abrir {
+  display: flex;
+  justify-content: center;
+}
+.content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+  background-color: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+  background-color: #643816;
+  transform: translateY(-2px);
+}
+@media (max-width: 1440px) {
+  .content__misLibros__libros__libro__flipCard {
+    background-color: transparent;
+    width: 210px;
+    height: 270px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .content__misLibros__libros__libro__flipCard:hover .content__misLibros__libros__libro__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .content__misLibros__libros__libro__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front, .content__misLibros__libros__libro__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+@media (max-width: 585px) {
+  .content__misLibros__libros__libro__flipCard {
+    background-color: transparent;
+    width: 190px;
+    height: 250px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .content__misLibros__libros__libro__flipCard:hover .content__misLibros__libros__libro__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .content__misLibros__libros__libro__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front, .content__misLibros__libros__libro__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .content__misLibros__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+.content__misLibros__verMas {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 22px;
+  padding: 10px 20px 0;
+  cursor: pointer;
+  color: #2F4F4F;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  transition: color 0.3s ease;
+}
+.content__misLibros__verMas:hover {
+  color: #80471C;
+}
+
+.content__losFavoritos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 460px;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+.content__losFavoritos__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__losFavoritos__libros {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 0;
+}
+@media (max-width: 1150px) {
+  .content__losFavoritos__libros {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+  }
+}
+@media (max-width: 535px) {
+  .content__losFavoritos__libros {
+    grid-template-columns: 1fr;
+  }
+}
+.content__losFavoritos__libros__libro {
+  cursor: pointer;
+}
+.content__losFavoritos__libros__libro__flipCard {
+  background-color: transparent;
+  width: 240px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.content__losFavoritos__libros__libro__flipCard:hover .content__losFavoritos__libros__libro__flipCard__inner {
+  transform: rotateY(180deg);
+}
+.content__losFavoritos__libros__libro__flipCard__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front, .content__losFavoritos__libros__libro__flipCard__inner__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #482C2C;
+  color: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 14px;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front__imagen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front__title {
+  position: relative;
+  z-index: 2;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.2;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__front__autor {
+  position: relative;
+  z-index: 2;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  color: #7F8C8D;
+  padding: 3px 10px 0;
+  text-align: center;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back {
+  box-shadow: -10px 20px 30px #482C2C;
+  background: #2F4F4F;
+  color: #F0EBE1;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 16px;
+  pointer-events: all;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back__title {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back__texto {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+  color: rgba(240, 235, 225, 0.9);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back__abrir {
+  display: flex;
+  justify-content: center;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+  background-color: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+  background-color: #643816;
+  transform: translateY(-2px);
+}
+@media (max-width: 1440px) {
+  .content__losFavoritos__libros__libro__flipCard {
+    background-color: transparent;
+    width: 210px;
+    height: 270px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .content__losFavoritos__libros__libro__flipCard:hover .content__losFavoritos__libros__libro__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front, .content__losFavoritos__libros__libro__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+@media (max-width: 585px) {
+  .content__losFavoritos__libros__libro__flipCard {
+    background-color: transparent;
+    width: 190px;
+    height: 250px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .content__losFavoritos__libros__libro__flipCard:hover .content__losFavoritos__libros__libro__flipCard__inner {
+    transform: rotateY(180deg);
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front, .content__losFavoritos__libros__libro__flipCard__inner__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #482C2C;
+    color: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__imagen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__title {
+    position: relative;
+    z-index: 2;
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__front__autor {
+    position: relative;
+    z-index: 2;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    color: #7F8C8D;
+    padding: 3px 10px 0;
+    text-align: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back {
+    box-shadow: -10px 20px 30px #482C2C;
+    background: #2F4F4F;
+    color: #F0EBE1;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 16px;
+    pointer-events: all;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__title {
+    font-family: "Distillery Display W00 Regular", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__texto {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: rgba(240, 235, 225, 0.9);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir {
+    display: flex;
+    justify-content: center;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup {
+    background-color: #80471C;
+    color: #F0EBE1;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .content__losFavoritos__libros__libro__flipCard__inner__back__abrir .btn-abrir-popup:hover {
+    background-color: #643816;
+    transform: translateY(-2px);
+  }
+}
+.content__losFavoritos__verMas {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 22px;
+  padding: 10px 20px 0;
+  cursor: pointer;
+  color: #2F4F4F;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  transition: color 0.3s ease;
+}
+.content__losFavoritos__verMas:hover {
+  color: #80471C;
+}
+
+.content__encuentra {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 600px;
+  justify-content: space-evenly;
+  padding: 40px 0;
+}
+.content__encuentra__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  color: #2c1b1b;
+  text-align: center;
+}
+.content__encuentra__title strong {
+  color: #80471C;
+  margin: 0 6px;
+  font-weight: bold;
+}
+.content__encuentra__libros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 480px;
+  width: 100%;
+}
+.content__encuentra__libros__stack {
+  position: relative;
+  width: 320px;
+  height: 460px;
+}
+@media (max-width: 768px) {
+  .content__encuentra__libros__stack {
+    width: 280px;
+    height: 400px;
+  }
+}
+.content__encuentra__libros__libro {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.content__encuentra__libros__libro:active {
+  cursor: grabbing;
+}
+.content__encuentra__libros__libro:nth-child(1) {
+  z-index: 5;
+}
+.content__encuentra__libros__libro:nth-child(2) {
+  z-index: 4;
+  transform: scale(0.95) translateY(10px);
+  opacity: 0.9;
+}
+.content__encuentra__libros__libro:nth-child(3) {
+  z-index: 3;
+  transform: scale(0.9) translateY(20px);
+  opacity: 0.8;
+}
+.content__encuentra__libros__libro:nth-child(n+4) {
+  z-index: 2;
+  transform: scale(0.85) translateY(30px);
+  opacity: 0.5;
+}
+.content__encuentra__libros__libro.swiping-right {
+  transform: translateX(100px) rotate(10deg) !important;
+  opacity: 0.8;
+}
+.content__encuentra__libros__libro.swiping-left {
+  transform: translateX(-100px) rotate(-10deg) !important;
+  opacity: 0.8;
+}
+.content__encuentra__libros__libro.swiped-right {
+  animation: swipeRight 0.5s ease-out forwards;
+}
+.content__encuentra__libros__libro.swiped-left {
+  animation: swipeLeft 0.5s ease-out forwards;
+}
+.content__encuentra__libros__libro__flipCard {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  position: relative;
+}
+.content__encuentra__libros__libro__flipCard.tinder-mode {
+  pointer-events: none;
+}
+.content__encuentra__libros__libro__flipCard__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+.content__encuentra__libros__libro__flipCard__inner__front, .content__encuentra__libros__libro__flipCard__inner__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content__encuentra__libros__libro__flipCard__inner__front {
+  box-shadow: 0 10px 30px rgba(72, 44, 44, 0.6);
+  background: #482C2C;
+  color: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__imagen {
+  position: absolute;
+  inset: 0;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.content__encuentra__libros__libro__flipCard__inner__front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(44, 27, 27, 0.95) 0%, transparent 100%);
+  pointer-events: none;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__info {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 16px;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__info h3 {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  color: #F0EBE1;
+  margin-bottom: 4px;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__info p {
+  font-size: 14px;
+  color: #7F8C8D;
+  font-family: "Tenor Sans", sans-serif;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__likeStamp {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #4CAF50;
+  transform: rotate(20deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__encuentra__libros__libro__flipCard__inner__front__nopeStamp {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #f44336;
+  transform: rotate(-20deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__encuentra__libros__libro__flipCard__inner__back {
+  box-shadow: 0 10px 30px rgba(72, 44, 44, 0.6);
+  background: #2F4F4F;
+  color: #F0EBE1;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 24px;
+}
+.content__encuentra__libros__libro__flipCard__inner__back__title {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__encuentra__libros__libro__flipCard__inner__back__texto {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.7;
+  font-family: "Tenor Sans", sans-serif;
+  color: rgba(240, 235, 225, 0.9);
+}
+.content__encuentra__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 24px;
+}
+.content__encuentra__controls__btn {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(72, 44, 44, 0.3);
+}
+.content__encuentra__controls__btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 20px rgba(72, 44, 44, 0.4);
+}
+.content__encuentra__controls__btn:active {
+  transform: scale(0.95);
+}
+.content__encuentra__controls__btn--dislike {
+  background: #b93737;
+  color: #F0EBE1;
+}
+.content__encuentra__controls__btn--dislike:hover {
+  background: #722323;
+}
+.content__encuentra__controls__btn--like {
+  background: #4CAF50;
+  color: #F0EBE1;
+}
+.content__encuentra__controls__btn--like:hover {
+  background: #43A047;
+}
+.content__encuentra__controls__btn--info {
+  background: #80471C;
+  color: #F0EBE1;
+  font-size: 22px;
+}
+.content__encuentra__controls__btn--info:hover {
+  background: #643816;
+}
+.content__encuentra__emptyState {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  text-align: center;
+  padding: 40px;
+}
+.content__encuentra__emptyState.active {
+  display: flex;
+}
+.content__encuentra__emptyState h2 {
+  font-size: 30px;
+  margin-bottom: 14px;
+  color: #2c1b1b;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+}
+.content__encuentra__emptyState p {
+  font-size: 17px;
+  color: #2F4F4F;
+  margin-bottom: 24px;
+  font-family: "Tenor Sans", sans-serif;
+}
+.content__encuentra__emptyState button {
+  padding: 14px 38px;
+  background: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 25px;
+  font-size: 17px;
+  font-family: "Tenor Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.content__encuentra__emptyState button:hover {
+  background: #643816;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #F0EBE1;
+}
+.content__encuentra__verMas {
+  display: none;
+}
+
+@keyframes swipeRight {
+  to {
+    transform: translateX(150%) rotate(20deg);
+    opacity: 0;
+  }
+}
+@keyframes swipeLeft {
+  to {
+    transform: translateX(-150%) rotate(-20deg);
+    opacity: 0;
+  }
+}
+.libroPopUp {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 27, 27, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.libroPopUp.active {
+  opacity: 1;
+  visibility: visible;
+}
+.libroPopUp.active .libroPopUp__content {
+  transform: scale(1) translateY(0);
+}
+.libroPopUp__content {
+  background: #6A2C2C;
+  color: #F0EBE1;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.85) translateY(30px);
+  transition: transform 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+.libroPopUp__content__header {
+  display: flex;
+  gap: 20px;
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.libroPopUp__content__header__portada {
+  flex-shrink: 0;
+  width: 110px;
+  height: 155px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #482C2C;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.libroPopUp__content__header__portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.libroPopUp__content__header__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.libroPopUp__content__header__info h2 {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  color: #F0EBE1;
+}
+.libroPopUp__content__header__info__autor {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  color: #7F8C8D;
+}
+.libroPopUp__content__header__info__genero {
+  display: inline-block;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #F0EBE1;
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.libroPopUp__content__descripcion {
+  padding: 18px 28px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(240, 235, 225, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.libroPopUp__content__acciones {
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.libroPopUp__content__acciones__titulo {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #7F8C8D;
+  text-transform: uppercase;
+}
+.libroPopUp__content__acciones__estados {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.libroPopUp__content__acciones__estados label {
+  flex: 1;
+  min-width: 90px;
+  cursor: pointer;
+}
+.libroPopUp__content__acciones__estados label input[type=radio] {
+  display: none;
+}
+.libroPopUp__content__acciones__estados label span {
+  display: block;
+  text-align: center;
+  padding: 10px 8px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  color: #F0EBE1;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+.libroPopUp__content__acciones__estados label input:checked + span {
+  border-color: #80471C;
+  background: #80471C;
+  color: #F0EBE1;
+  font-weight: bold;
+}
+.libroPopUp__content__acciones__estados label:hover span {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+.libroPopUp__content__acciones__favorito {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
+.libroPopUp__content__acciones__favorito input[type=checkbox] {
+  display: none;
+}
+.libroPopUp__content__acciones__favorito__icon {
+  font-size: 26px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: rgba(255, 255, 255, 0.3);
+}
+input:checked ~ .libroPopUp__content__acciones__favorito__icon, .libroPopUp__content__acciones__favorito.checked .libroPopUp__content__acciones__favorito__icon {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+.libroPopUp__content__acciones__favorito__label {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  color: #F0EBE1;
+}
+.libroPopUp__content__acciones__botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+.libroPopUp__content__acciones__botones button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.libroPopUp__content__acciones__botones button.btn-guardar {
+  background: #2F4F4F;
+  color: #F0EBE1;
+}
+.libroPopUp__content__acciones__botones button.btn-guardar:hover {
+  background: #213838;
+  transform: translateY(-2px);
+}
+.libroPopUp__content__acciones__botones button.btn-eliminar {
+  background: #b93737;
+  color: #F0EBE1;
+}
+.libroPopUp__content__acciones__botones button.btn-eliminar:hover {
+  background: #722323;
+  transform: translateY(-2px);
+}
+.libroPopUp__content__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #F0EBE1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+.libroPopUp__content__close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+body.page-home {
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+p, ul, li, a, span, div, button {
+  font-family: "Tenor Sans", sans-serif;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.carouselContainer__slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.carouselContainer__slide#active {
+  opacity: 1;
+}
+.carouselContainer__slide#reverse {
+  flex-direction: row-reverse;
+}
+.carouselContainer__slide__img {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.carouselContainer__slide__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide__img {
+    width: 100%;
+    height: 50%;
+  }
+}
+.carouselContainer__slide__text {
+  width: 50%;
+  height: 100%;
+  background: #F0EBE1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  color: #2c1b1b;
+  position: relative;
+  z-index: 2;
+}
+.carouselContainer__slide__text h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+.carouselContainer__slide__text p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+  opacity: 0.95;
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide__text {
+    width: 100%;
+    height: 50%;
+    padding: 40px;
+  }
+  .carouselContainer__slide__text h1 {
+    font-size: 32px;
+  }
+  .carouselContainer__slide__text p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 425px) {
+  .carouselContainer__slide__text {
+    padding: 20px;
+  }
+}
+@media (max-width: 320px) {
+  .carouselContainer__slide__text h1 {
+    text-align: center;
+  }
+}
+@media (max-width: 968px) {
+  .carouselContainer__slide {
+    flex-direction: column;
+  }
+}
+.carouselContainer__controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 100;
+  pointer-events: none;
+}
+@media (max-width: 968px) {
+  .carouselContainer__controls {
+    top: 45%;
+  }
+}
+.carouselContainer__controls__btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: all;
+}
+.carouselContainer__controls__btn#prevBtn {
+  left: 10px;
+}
+.carouselContainer__controls__btn#nextBtn {
+  right: 10px;
+}
+.carouselContainer__controls__btn img {
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px #F0EBE1);
+  transition: filter 0.3s ease;
+}
+.carouselContainer__controls__btn:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 1439px) {
+  .carouselContainer__controls__btn {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (max-width: 968px) {
+  .carouselContainer__controls__btn {
+    width: 75px;
+    height: 75px;
+  }
+  .carouselContainer__controls__btn#prevBtn {
+    left: 5px;
+  }
+  .carouselContainer__controls__btn#nextBtn {
+    right: 5px;
+  }
+}
+@media (max-width: 425px) {
+  .carouselContainer__controls__btn {
+    width: 60px;
+    height: 60px;
+  }
+}
+.carouselContainer__indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+.carouselContainer__indicators__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+.carouselContainer__indicators__indicator#active {
+  background-color: white;
+  transform: scale(1.3);
+}
+.carouselContainer__indicators__indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.loginPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(127, 140, 141, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.loginPopUp#active {
+  opacity: 1;
+  visibility: visible;
+}
+.loginPopUp#active .loginPopUp__content {
+  transform: scale(1);
+}
+.loginPopUp__content {
+  background: #6A2C2C;
+  color: #F0EBE1;
+  padding: 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: -10px 20px 30px #482C2C;
+}
+.loginPopUp__content h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.loginPopUp__content__text {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #7F8C8D;
+}
+.loginPopUp__content__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginPopUp__content__close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+.loginPopUp__content__formGroup {
+  margin-bottom: 20px;
+}
+.loginPopUp__content__formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  color: #F0EBE1;
+}
+.loginPopUp__content__formGroup input {
+  color: #80471C;
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.loginPopUp__content__formGroup input:focus {
+  outline: none;
+  border-color: #2F4F4F;
+}
+.loginPopUp__content__formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+.loginPopUp__content__formOptions__checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.loginPopUp__content__formOptions__checkboxLabel input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+.loginPopUp__content__formOptions__checkboxLabel span {
+  color: #F0EBE1;
+}
+.loginPopUp__content__formOptions__forgotPassword {
+  color: #7F8C8D;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.loginPopUp__content__formOptions__forgotPassword:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+.loginPopUp__content__submitBtn {
+  width: 100%;
+  padding: 15px;
+  background: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.loginPopUp__content__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #643816;
+  color: #7F8C8D;
+}
+.loginPopUp__content__error {
+  margin-top: 12px;
+  color: #ffb3b3;
+  font-size: 14px;
+  min-height: 18px;
+}
+.loginPopUp__content__signupLink, .loginPopUp__content__loginLink {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+.loginPopUp__content__signupLink a, .loginPopUp__content__loginLink a {
+  color: #7F8C8D;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.loginPopUp__content__signupLink a:hover, .loginPopUp__content__loginLink a:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+
+.signUpPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(127, 140, 141, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.signUpPopUp#active {
+  opacity: 1;
+  visibility: visible;
+}
+.signUpPopUp#active .signUpPopUp__content {
+  transform: scale(1);
+}
+.signUpPopUp__content {
+  background: #6A2C2C;
+  color: #F0EBE1;
+  padding: 30px;
+  border-radius: 10px;
+  width: 50%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: -10px 20px 30px #482C2C;
+}
+@media (max-width: 768px) {
+  .signUpPopUp__content {
+    width: 80%;
+  }
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content {
+    width: 90%;
+  }
+}
+.signUpPopUp__content h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.signUpPopUp__content__text {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #7F8C8D;
+}
+.signUpPopUp__content__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signUpPopUp__content__close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+.signUpPopUp__content__formGroup {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__formGroup {
+    grid-template-columns: 40% 60%;
+    margin-bottom: 10px;
+  }
+}
+.signUpPopUp__content__formGroup label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #F0EBE1;
+}
+@media (max-width: 425px) {
+  .signUpPopUp__content__formGroup label {
+    justify-content: flex-start;
+  }
+}
+.signUpPopUp__content__formGroup input {
+  color: #80471C;
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.signUpPopUp__content__formGroup input:focus {
+  outline: none;
+  border-color: #2F4F4F;
+}
+.signUpPopUp__content__submitBtn {
+  width: 100%;
+  padding: 15px;
+  background: #80471C;
+  color: #F0EBE1;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.signUpPopUp__content__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #643816;
+  color: #7F8C8D;
+}
+.signUpPopUp__content__error {
+  margin-top: 12px;
+  color: #ffb3b3;
+  font-size: 14px;
+  min-height: 18px;
+}
+.signUpPopUp__content__loginLink {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+.signUpPopUp__content__loginLink a {
+  color: #7F8C8D;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signUpPopUp__content__loginLink a:hover {
+  color: #2F4F4F;
+  text-decoration: underline;
+}
+
+body {
+  overflow: scroll;
+  width: 100%;
+}
+
+.content {
+  background-color: #F0EBE1;
+  color: #2c1b1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+p, ul, li, a, span, div, button {
+  font-family: "Tenor Sans", sans-serif;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #c9b8a8 25%, #d4c5b5 50%, #c9b8a8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2F4F4F;
+  color: #F0EBE1;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  box-shadow: -10px 20px 30px #482C2C;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast.error {
+  background: #b93737;
+}
+
+body {
+  overflow: scroll;
+}
+
+article {
+  background-color: #F0EBE1;
+  color: #2c1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+p, ul, li, a, span, div, button {
+  font-family: "Tenor Sans", sans-serif;
+}
+
+.seccion__titulo {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  color: #2c1b1b;
+  padding: 30px 0 10px;
+  letter-spacing: 2px;
+}
+
+.seccion__verMas {
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
+  font-family: "Distillery Display W00 Regular", sans-serif;
+  color: #2F4F4F;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.seccion__verMas:hover {
+  color: #80471C;
+}
+
+.filtros {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+.filtros__btn {
+  padding: 8px 22px;
+  border: 2px solid #80471C;
+  border-radius: 20px;
+  background: transparent;
+  color: #80471C;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filtros__btn:hover, .filtros__btn.active {
+  background: #80471C;
+  color: #F0EBE1;
+}
+
+/*# sourceMappingURL=style.css.map */
